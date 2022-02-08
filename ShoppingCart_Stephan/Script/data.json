@@ -1,0 +1,32 @@
+var products = `[{
+        "name": "Red Roses",
+        "image": "Images/roses.jpg",
+        "price": 4.50,
+        "qtty": 1
+    },
+    {
+        "name": "Orchid",
+        "image": "Images/orchid.jpg",
+        "price": 5.80,
+        "qtty": 1
+    },
+    {
+        "name": "Sunflowers",
+        "image": "Images/sunflowers.jpg",
+        "price": 9.80,
+        "qtty": 1
+    },
+    {
+        "name": "Tulips",
+        "image": "Images/tulips.jpg",
+        "price": 3.20,
+        "qtty": 1
+    },
+    {
+        "name": "Bouquet of Flowers",
+        "image": "Images/bouqet.jpg",
+        "price": 16.40,
+        "qtty": 1
+    }
+
+]`
