@@ -53,7 +53,7 @@ for (let i = 0; i < btns.length; i++) {
 
     btns[i].addEventListener("click", function() {
 
-        addToCart(products[i], i);
+        addToCart(products[i]);
 
     })
 
@@ -62,17 +62,7 @@ for (let i = 0; i < btns.length; i++) {
 // adds the addToCart function
 var cart = [];
 
-
-function addToCart(product, index) {
-
-    cart.push(product);
-
-    console.table(cart);
-
-}
-
-// function for adding a product but only increasing the quantity
-function addToCart(product, index) {
+function addToCart(product) {
 
     if (cart.find((val) => val.name == product.name)) {
 
@@ -85,6 +75,65 @@ function addToCart(product, index) {
     }
     createRows();
     Total();
+    allItems();
+
+}
+
+function plusQtty(i) {
+
+    cart[i].qtty++;
+
+    document.getElementsByClassName("cart-quantity")[i].innerHTML = cart[i].qtty;
+
+}
+
+function minusQtty(i) {
+    if (cart[i].qtty == 1) {
+        cart.splice(i, 1);
+        createRows();
+    } else {
+        cart[i].qtty -= 1;
+        document.getElementsByClassName("cart-quantity")[i].innerHTML = cart[i].qtty;
+    }
+}
+
+function deleteItem(i) {
+
+    cart[i].qtty = 1;
+
+    cart.splice(i, 1);
+
+    createRows();
+
+}
+
+function Total() {
+
+    let total = 0;
+
+    for (let val of cart) {
+
+        total += (val.price * val.qtty);
+
+    }
+
+    document.getElementById("price").innerHTML = total.toFixed(2) + " €";
+
+
+}
+
+function allItems() {
+
+    let allItems = 0;
+
+    for (let val of cart) {
+
+        allItems += (val.qtty);
+
+    }
+
+    document.getElementById("totalitems").innerHTML = allItems
+
 
 }
 
@@ -135,19 +184,43 @@ function createRows() {
 
     document.getElementById("cart-items").innerHTML = result;
 
-}
+    let plus = document.getElementsByClassName("plus");
 
-// gives back the total value of the prices 
-function Total() {
+    let minus = document.getElementsByClassName("minus");
 
-    let total = 0;
+    let del = document.getElementsByClassName("del");
 
-    for (let val of cart) {
 
-        total += (val.price * val.qtty);
+    for (let i = 0; i < plus.length; i++) {
 
+        plus[i].addEventListener("click", function() {
+
+            plusQtty(i);
+
+            Total();
+
+            allItems();
+
+        });
+
+        minus[i].addEventListener("click", function() {
+
+            minusQtty(i);
+
+            Total();
+
+            allItems();
+
+        });
+
+        del[i].addEventListener("click", function() {
+
+            deleteItem(i);
+
+            Total();
+
+            allItems();
+
+        });
     }
-
-    document.getElementById("price").innerHTML = total.toFixed(2) + " €";
-
 }
