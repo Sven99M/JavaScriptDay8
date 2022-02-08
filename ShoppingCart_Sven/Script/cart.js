@@ -75,7 +75,7 @@ function addToCart(product) {
     }
     createRows();
     Total();
-    allItems();
+    discount();
 
 }
 
@@ -108,34 +108,38 @@ function deleteItem(i) {
 }
 
 function Total() {
-
     let total = 0;
-
+    let allItems = 0;
+    let discountValue = 100;
+    let discountAmount = 0;
     for (let val of cart) {
-
         total += (val.price * val.qtty);
-
+        allItems += (val.qtty);
+    }
+    if (total >= discountValue) {
+        discountAmount = total * 0.9
     }
 
     document.getElementById("price").innerHTML = total.toFixed(2) + " €";
+    document.getElementById("totalitems").innerHTML = allItems;
+    document.getElementById("discount").innerHTML = discountAmount;
 
 
 }
 
-function allItems() {
+function discount() {
 
-    let allItems = 0;
-
-    for (let val of cart) {
-
-        allItems += (val.qtty);
-
-    }
-
-    document.getElementById("totalitems").innerHTML = allItems
 
 
 }
+
+// function allItems() {
+//     let allItems = 0;
+//     for (let val of cart) {
+//         allItems += (val.qtty);
+//     }
+//     document.getElementById("totalitems").innerHTML = allItems
+// }
 
 // creates the items in the cart after adding them 
 
@@ -198,8 +202,8 @@ function createRows() {
             plusQtty(i);
 
             Total();
+            discount();
 
-            allItems();
 
         });
 
@@ -208,8 +212,8 @@ function createRows() {
             minusQtty(i);
 
             Total();
+            discount();
 
-            allItems();
 
         });
 
@@ -218,8 +222,8 @@ function createRows() {
             deleteItem(i);
 
             Total();
+            discount();
 
-            allItems();
 
         });
     }
