@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="Style/styles.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -16,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light mynav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"> <img src="https://codefactory.wien/wp-content/uploads/2020/12/cropped-CodeFactory-LOGO-September-2020.png" alt="" width="150" height="50" class="d-inline-block align-top">
+            <a class="navbar-brand" href="#"> <i class="fas fa-leaf d-inline-block align-top"></i>
 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +57,14 @@
                 <strong class="cart-total-title">Total</strong>
                 <span id="price" class="cart-total-price h4">€0.00</span>
             </div>
+            <div id="total" class="cart-total">
+                <strong class="cart-total-title">Items</strong>
+                <span id="totalitems" class="cart-total-price h4">0</span>
+            </div>
+            <div id="total" class="cart-total">
+                <strong class="cart-total-title">Discount</strong>
+                <span id="discount" class="cart-total-price h4">0 %</span>
+            </div>
             <div class="d-flex justify-content-center m-4">
                 <button id="btn-purchase" class="btn btn-primary btn-purchase" type="button">Check out <br><i
                         class="fa fa-handshake-o" style="font-size:36px;color:white"></i></button>
@@ -66,7 +75,8 @@
     <footer class="mynav d-flex justify-content-center align-items-center">
         <span class=" h2">CodeFactory Shop</span>
     </footer>
-    <!--<script src="Script/cart.js"></script> -->
+    <script src="https://kit.fontawesome.com/f741c7f925.js" crossorigin="anonymous"></script>
+    <script src="Script/data.json"></script>
     <script src="Script/cart.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
